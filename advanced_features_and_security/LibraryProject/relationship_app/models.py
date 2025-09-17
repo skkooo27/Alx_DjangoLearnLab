@@ -17,15 +17,7 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
-    class Meta:
-        # Custom permissions for controlling access to book operations
-        # These permissions are used in views to enforce access control
-        permissions = [
-            ("can_view", "Can view book"),
-            ("can_create", "Can create book"),
-            ("can_edit", "Can edit book"),
-            ("can_delete", "Can delete book"),
-        ]
+
 
 class Library(models.Model):
     name = models.CharField(max_length=100)

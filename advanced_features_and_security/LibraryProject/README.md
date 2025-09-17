@@ -10,8 +10,8 @@ This Django project implements advanced features including custom user models, p
 - Integrated into Django admin
 
 ### 2. Permissions and Groups
-- Custom permissions on Book model: can_view, can_create, can_edit, can_delete
-- Views enforce these permissions
+- Custom permissions on Book model in bookshelf app: can_view, can_create, can_edit, can_delete
+- Views in relationship_app enforce these permissions
 - Groups can be created in Django admin:
   - Editors: can_edit, can_create
   - Viewers: can_view
