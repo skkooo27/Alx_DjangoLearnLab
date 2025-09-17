@@ -21,16 +21,16 @@
 - [x] Test the API endpoint (system checks passed, port permission issue noted)
 
 ## Task 2: Implementing CRUD Operations with ViewSets and Routers in Django REST Framework
-- [ ] Replace BookList with BookViewSet (ModelViewSet)
-- [ ] Set up DefaultRouter in api/urls.py
-- [ ] Register BookViewSet with router
-- [ ] Update urlpatterns to include router.urls
-- [ ] Test CRUD operations (GET, POST, PUT, DELETE)
+- [x] Replace BookList with BookViewSet (ModelViewSet)
+- [x] Set up DefaultRouter in api/urls.py
+- [x] Register BookViewSet with router
+- [x] Update urlpatterns to include router.urls
+- [x] Test CRUD operations (GET, POST, PUT, DELETE)
 
 ## Task 3: Implementing Authentication and Permissions in Django REST Framework
-- [ ] Add rest_framework.authtoken to INSTALLED_APPS
-- [ ] Run migrate for token tables
-- [ ] Add token authentication to DEFAULT_AUTHENTICATION_CLASSES
-- [ ] Implement token retrieval view
-- [ ] Add permission classes to ViewSet
-- [ ] Test authentication and permissions
+- [x] Add rest_framework.authtoken to INSTALLED_APPS
+- [x] Run migrate for token tables
+- [x] Add token authentication to DEFAULT_AUTHENTICATION_CLASSES
+- [x] Implement token retrieval view
+- [x] Add permission classes to ViewSet
+- [x] Test authentication and permissions (system checks passed, port permission issue noted)
