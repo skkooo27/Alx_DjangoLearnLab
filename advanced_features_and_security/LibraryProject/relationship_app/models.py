@@ -1,6 +1,5 @@
 from django.db import models
 from users.models import CustomUser
-from bookshelf.models import Book
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
@@ -9,6 +8,24 @@ class Author(models.Model):
 
     def __str__(self):
         return self.name
+
+class Book(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    publication_year = models.IntegerField()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        permissions = [
+            ("can_view", "Can view book"),
+            ("can_create", "Can create book"),
+            ("can_edit", "Can edit book"),
+            ("can_delete", "Can delete book"),
+        ]
+
+
 
 class Library(models.Model):
     name = models.CharField(max_length=100)
