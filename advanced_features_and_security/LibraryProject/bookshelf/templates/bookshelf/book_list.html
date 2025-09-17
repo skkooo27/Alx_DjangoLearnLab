@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book List</title>
+</head>
+<body>
+    <h1>Book List</h1>
+    <ul>
+    {% for book in books %}
+        <li>{{ book.title }} - {{ book.author }} ({{ book.publication_year }})</li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'book_create' %}">Add New Book</a>
+</body>
+</html>
