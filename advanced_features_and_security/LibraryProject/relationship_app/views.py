@@ -1,13 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required, user_passes_test, permission_required
-from django.contrib.auth.decorators import permission_required
-
 from django.views.generic.detail import DetailView
-from django.urls import reverse_lazy
-from .models import Library
 from .models import Book, Library, UserProfile
+from .forms import CustomUserCreationForm
 
 # Function-based view to list all books
 @login_required
@@ -24,13 +20,13 @@ class LibraryDetailView(DetailView):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
             return redirect('list_books')
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     return render(request, 'relationship_app/register.html', {'form': form})
 
 # Role-based views
