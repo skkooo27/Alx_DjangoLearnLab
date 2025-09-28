@@ -43,7 +43,7 @@ class BookAPITestCase(APITestCase):
         # Test creating a book when unauthenticated
         data = {'title': 'New Book', 'publication_year': 2021, 'author': self.author.pk}
         response = self.client.post(self.list_url, data)
-        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_update_book_authenticated(self):
         # Test updating a book when authenticated
@@ -58,7 +58,7 @@ class BookAPITestCase(APITestCase):
         # Test updating a book when unauthenticated
         data = {'title': 'Updated Book', 'publication_year': 2020, 'author': self.author.pk}
         response = self.client.put(self.detail_url, data)
-        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_delete_book_authenticated(self):
         # Test deleting a book when authenticated
@@ -70,7 +70,7 @@ class BookAPITestCase(APITestCase):
     def test_delete_book_unauthenticated(self):
         # Test deleting a book when unauthenticated
         response = self.client.delete(self.detail_url)
-        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_filter_books_by_title(self):
         # Test filtering books by title
