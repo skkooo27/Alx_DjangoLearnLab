@@ -29,8 +29,8 @@ All endpoints are under `/api/`:
 
 ### Authenticated Only (Use token or session authentication)
 - **Create Book**: `POST /books/create/` - Add a new book. Body: `{"title": "Book Title", "publication_year": 2020, "author": 1}`. Validates publication year not in future.
-- **Update Book**: `PUT/PATCH /books/<int:pk>/update/` - Modify a book. Body as above.
-- **Delete Book**: `DELETE /books/<int:pk>/delete/` - Remove a book.
+- **Update Book**: `PUT/PATCH /books/update/<int:pk>/` - Modify a book. Body as above.
+- **Delete Book**: `DELETE /books/delete/<int:pk>/` - Remove a book.
 
 ## Permissions
 - Read operations (List, Retrieve): Open to all users.
