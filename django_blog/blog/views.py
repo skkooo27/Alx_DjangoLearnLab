@@ -59,6 +59,16 @@ class PostListView(ListView):
     context_object_name = 'posts'
     ordering = ['-published_date']
 
+class PostByTagListView(ListView):
+    model = Post
+    template_name = 'blog/post_list.html'
+    context_object_name = 'posts'
+    ordering = ['-published_date']
+
+    def get_queryset(self):
+        tag_slug = self.kwargs.get('tag_slug')
+        return Post.objects.filter(tags__slug=tag_slug)
+
 class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
