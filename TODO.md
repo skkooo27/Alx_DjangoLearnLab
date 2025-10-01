@@ -33,9 +33,9 @@
 - [x] Test comment functionality
 
 ## Task 4: Implementing Advanced Features
-- [ ] Add Tag model and many-to-many relation
-- [ ] Update Post forms for tags
-- [ ] Implement search functionality
-- [ ] Update templates for tags and search
-- [ ] Configure URLs for advanced features
-- [ ] Test tagging and search features
+- [x] Add Tag model and many-to-many relation
+- [x] Update Post forms for tags
+- [x] Implement search functionality
+- [x] Update templates for tags and search
+- [x] Configure URLs for advanced features
+- [x] Test tagging and search features

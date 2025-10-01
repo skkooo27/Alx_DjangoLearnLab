@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Comment
+from .models import Comment, Post
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -17,6 +17,17 @@ class CustomUserCreationForm(UserCreationForm):
             user.save()
         return user
 
+class PostForm(forms.ModelForm):
+    tags = forms.CharField(
+        required=False,
+        widget=forms.TextInput(attrs={'placeholder': 'Enter tags separated by commas'}),
+        help_text='Enter tags separated by commas (e.g., django, python, web)'
+    )
+
+    class Meta:
+        model = Post
+        fields = ['title', 'content', 'tags']
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
@@ -24,3 +35,11 @@ class CommentForm(forms.ModelForm):
         widgets = {
             'content': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Write your comment here...'}),
         }
+
+    def clean_content(self):
+        content = self.cleaned_data.get('content')
+        if len(content.strip()) < 5:
+            raise forms.ValidationError('Comment must be at least 5 characters long.')
+        if len(content) > 1000:
+            raise forms.ValidationError('Comment cannot exceed 1000 characters.')
+        return content
